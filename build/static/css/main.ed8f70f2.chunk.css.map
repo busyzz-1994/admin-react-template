@@ -1,0 +1,1 @@
+{"version":3,"sources":["webpack://src/components/Header/index.module.scss","webpack://src/styles/variables.scss"],"names":[],"mappings":"AAEA,mBACE,SCHU","file":"main.ed8f70f2.chunk.css","sourcesContent":["@import '~styles/index.scss';\n\n.box {\n  color: $color;\n}\n","$color: #f00;\n"]}

@@ -1,8 +1,14 @@
+/*
+ * @Author: busyzz
+ * @Date: 2021-08-01 11:05:52
+ * @Description:
+ */
+import './polyfill';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
 import reportWebVitals from './reportWebVitals';
+import App from './App';
+import './styles/index.scss';
 
 ReactDOM.render(
   <React.StrictMode>
