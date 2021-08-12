@@ -1,29 +1,29 @@
 {
   "files": {
-    "main.css": "/static/css/main.ed8f70f2.chunk.css",
-    "main.js": "/static/js/main.f6c386c48d.chunk.js",
-    "main.js.map": "/static/js/main.f6c386c48d.chunk.js.map",
-    "reactVendor.js": "/static/js/reactVendor.3beda818a8.chunk.js",
-    "reactVendor.js.map": "/static/js/reactVendor.3beda818a8.chunk.js.map",
-    "runtime-main.js": "/static/js/runtime-main.8ce5f109.js",
-    "runtime-main.js.map": "/static/js/runtime-main.8ce5f109.js.map",
-    "utilityVendor.js": "/static/js/utilityVendor.36c4ca1ec1.chunk.js",
-    "utilityVendor.js.map": "/static/js/utilityVendor.36c4ca1ec1.chunk.js.map",
-    "static/js/4.6b3a1b8b7b.chunk.js": "/static/js/4.6b3a1b8b7b.chunk.js",
-    "static/js/4.6b3a1b8b7b.chunk.js.map": "/static/js/4.6b3a1b8b7b.chunk.js.map",
-    "index.html": "/index.html",
-    "static/css/main.ed8f70f2.chunk.css.map": "/static/css/main.ed8f70f2.chunk.css.map",
-    "static/js/main.f6c386c48d.chunk.js.LICENSE.txt": "/static/js/main.f6c386c48d.chunk.js.LICENSE.txt",
-    "static/js/reactVendor.3beda818a8.chunk.js.LICENSE.txt": "/static/js/reactVendor.3beda818a8.chunk.js.LICENSE.txt",
-    "static/js/utilityVendor.36c4ca1ec1.chunk.js.LICENSE.txt": "/static/js/utilityVendor.36c4ca1ec1.chunk.js.LICENSE.txt",
-    "static/media/max.6fd12fae.jpg": "/static/media/max.6fd12fae.jpg",
-    "static/media/max.8a446ef7.jpg": "/static/media/max.8a446ef7.jpg"
+    "main.css": "/admin-react-template/build/static/css/main.ed8f70f2.chunk.css",
+    "main.js": "/admin-react-template/build/static/js/main.22022ffdc6.chunk.js",
+    "main.js.map": "/admin-react-template/build/static/js/main.22022ffdc6.chunk.js.map",
+    "reactVendor.js": "/admin-react-template/build/static/js/reactVendor.3beda818a8.chunk.js",
+    "reactVendor.js.map": "/admin-react-template/build/static/js/reactVendor.3beda818a8.chunk.js.map",
+    "runtime-main.js": "/admin-react-template/build/static/js/runtime-main.e8274f26.js",
+    "runtime-main.js.map": "/admin-react-template/build/static/js/runtime-main.e8274f26.js.map",
+    "utilityVendor.js": "/admin-react-template/build/static/js/utilityVendor.36c4ca1ec1.chunk.js",
+    "utilityVendor.js.map": "/admin-react-template/build/static/js/utilityVendor.36c4ca1ec1.chunk.js.map",
+    "static/js/4.6b3a1b8b7b.chunk.js": "/admin-react-template/build/static/js/4.6b3a1b8b7b.chunk.js",
+    "static/js/4.6b3a1b8b7b.chunk.js.map": "/admin-react-template/build/static/js/4.6b3a1b8b7b.chunk.js.map",
+    "index.html": "/admin-react-template/build/index.html",
+    "static/css/main.ed8f70f2.chunk.css.map": "/admin-react-template/build/static/css/main.ed8f70f2.chunk.css.map",
+    "static/js/main.22022ffdc6.chunk.js.LICENSE.txt": "/admin-react-template/build/static/js/main.22022ffdc6.chunk.js.LICENSE.txt",
+    "static/js/reactVendor.3beda818a8.chunk.js.LICENSE.txt": "/admin-react-template/build/static/js/reactVendor.3beda818a8.chunk.js.LICENSE.txt",
+    "static/js/utilityVendor.36c4ca1ec1.chunk.js.LICENSE.txt": "/admin-react-template/build/static/js/utilityVendor.36c4ca1ec1.chunk.js.LICENSE.txt",
+    "static/media/max.6fd12fae.jpg": "/admin-react-template/build/static/media/max.6fd12fae.jpg",
+    "static/media/max.8a446ef7.jpg": "/admin-react-template/build/static/media/max.8a446ef7.jpg"
   },
   "entrypoints": [
-    "static/js/runtime-main.8ce5f109.js",
+    "static/js/runtime-main.e8274f26.js",
     "static/js/reactVendor.3beda818a8.chunk.js",
     "static/js/utilityVendor.36c4ca1ec1.chunk.js",
     "static/css/main.ed8f70f2.chunk.css",
-    "static/js/main.f6c386c48d.chunk.js"
+    "static/js/main.22022ffdc6.chunk.js"
   ]
 }
