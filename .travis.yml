@@ -10,6 +10,6 @@ deploy:
   skip_cleanup: true
   local_dir: build
   github_token: $GITHUB_PAGES
-  keep_history: true
+  keep_history: false
   on:
     branch: master
