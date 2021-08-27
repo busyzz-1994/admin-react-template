@@ -1,29 +1,29 @@
 {
   "files": {
     "main.css": "/admin-react-template/build/static/css/main.ed8f70f2.chunk.css",
-    "main.js": "/admin-react-template/build/static/js/main.22022ffdc6.chunk.js",
-    "main.js.map": "/admin-react-template/build/static/js/main.22022ffdc6.chunk.js.map",
-    "reactVendor.js": "/admin-react-template/build/static/js/reactVendor.3beda818a8.chunk.js",
-    "reactVendor.js.map": "/admin-react-template/build/static/js/reactVendor.3beda818a8.chunk.js.map",
-    "runtime-main.js": "/admin-react-template/build/static/js/runtime-main.e8274f26.js",
-    "runtime-main.js.map": "/admin-react-template/build/static/js/runtime-main.e8274f26.js.map",
-    "utilityVendor.js": "/admin-react-template/build/static/js/utilityVendor.36c4ca1ec1.chunk.js",
-    "utilityVendor.js.map": "/admin-react-template/build/static/js/utilityVendor.36c4ca1ec1.chunk.js.map",
-    "static/js/4.6b3a1b8b7b.chunk.js": "/admin-react-template/build/static/js/4.6b3a1b8b7b.chunk.js",
-    "static/js/4.6b3a1b8b7b.chunk.js.map": "/admin-react-template/build/static/js/4.6b3a1b8b7b.chunk.js.map",
+    "main.js": "/admin-react-template/build/static/js/main.c524a44a16.chunk.js",
+    "main.js.map": "/admin-react-template/build/static/js/main.c524a44a16.chunk.js.map",
+    "reactVendor.js": "/admin-react-template/build/static/js/reactVendor.75bcf6b748.chunk.js",
+    "reactVendor.js.map": "/admin-react-template/build/static/js/reactVendor.75bcf6b748.chunk.js.map",
+    "runtime-main.js": "/admin-react-template/build/static/js/runtime-main.c6b96fd5.js",
+    "runtime-main.js.map": "/admin-react-template/build/static/js/runtime-main.c6b96fd5.js.map",
+    "vendors~main.css": "/admin-react-template/build/static/css/vendors~main.786ae0dd.chunk.css",
+    "vendors~main.js": "/admin-react-template/build/static/js/vendors~main.36c96e0bc0.chunk.js",
+    "vendors~main.js.map": "/admin-react-template/build/static/js/vendors~main.36c96e0bc0.chunk.js.map",
+    "static/js/4.62ec1d8010.chunk.js": "/admin-react-template/build/static/js/4.62ec1d8010.chunk.js",
+    "static/js/4.62ec1d8010.chunk.js.map": "/admin-react-template/build/static/js/4.62ec1d8010.chunk.js.map",
     "index.html": "/admin-react-template/build/index.html",
     "static/css/main.ed8f70f2.chunk.css.map": "/admin-react-template/build/static/css/main.ed8f70f2.chunk.css.map",
-    "static/js/main.22022ffdc6.chunk.js.LICENSE.txt": "/admin-react-template/build/static/js/main.22022ffdc6.chunk.js.LICENSE.txt",
-    "static/js/reactVendor.3beda818a8.chunk.js.LICENSE.txt": "/admin-react-template/build/static/js/reactVendor.3beda818a8.chunk.js.LICENSE.txt",
-    "static/js/utilityVendor.36c4ca1ec1.chunk.js.LICENSE.txt": "/admin-react-template/build/static/js/utilityVendor.36c4ca1ec1.chunk.js.LICENSE.txt",
-    "static/media/max.6fd12fae.jpg": "/admin-react-template/build/static/media/max.6fd12fae.jpg",
-    "static/media/max.8a446ef7.jpg": "/admin-react-template/build/static/media/max.8a446ef7.jpg"
+    "static/css/vendors~main.786ae0dd.chunk.css.map": "/admin-react-template/build/static/css/vendors~main.786ae0dd.chunk.css.map",
+    "static/js/reactVendor.75bcf6b748.chunk.js.LICENSE.txt": "/admin-react-template/build/static/js/reactVendor.75bcf6b748.chunk.js.LICENSE.txt",
+    "static/js/vendors~main.36c96e0bc0.chunk.js.LICENSE.txt": "/admin-react-template/build/static/js/vendors~main.36c96e0bc0.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.e8274f26.js",
-    "static/js/reactVendor.3beda818a8.chunk.js",
-    "static/js/utilityVendor.36c4ca1ec1.chunk.js",
+    "static/js/runtime-main.c6b96fd5.js",
+    "static/js/reactVendor.75bcf6b748.chunk.js",
+    "static/css/vendors~main.786ae0dd.chunk.css",
+    "static/js/vendors~main.36c96e0bc0.chunk.js",
     "static/css/main.ed8f70f2.chunk.css",
-    "static/js/main.22022ffdc6.chunk.js"
+    "static/js/main.c524a44a16.chunk.js"
   ]
 }
