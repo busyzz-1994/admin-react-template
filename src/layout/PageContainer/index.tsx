@@ -13,6 +13,7 @@ interface IPageContainerProps {
   breadList: Array<breadListItem>;
 }
 const PageContainer: FC<IPageContainerProps> = ({ children, breadList }) => {
+  console.log(breadList, 'breadList');
   return (
     <div>
       <div className={styles.breadcrumb}>
