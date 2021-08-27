@@ -52,7 +52,7 @@ const routes: Array<IMenuConfig> = [
       },
       {
         path: routesPath.form.standard,
-        name: '标准表单',
+        name: '标准表单-1',
         // exact: true,
         component: SuspenseComponent(StandardForm),
       },
