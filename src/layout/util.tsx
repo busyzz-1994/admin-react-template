@@ -20,12 +20,8 @@ export const getBreadList = (
   list: Array<breadListItem> = []
 ) => {
   try {
-    if (process.env.NODE_ENV === 'production') {
-      pathname = pathname.replace(process.env.PUBLIC_URL, '');
-    }
     console.log('pathname---', pathname);
     const branch = matchRoutes(routes, pathname);
-    console.log(branch, 'branch----');
     const {
       route: { name, path },
     } = branch[0];

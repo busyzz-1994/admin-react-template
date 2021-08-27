@@ -8,7 +8,15 @@ import { renderRoutes } from 'react-router-config';
 import routes from 'config/routes';
 import { BrowserRouter as Router } from 'react-router-dom';
 function App() {
-  return <Router>{renderRoutes(routes)}</Router>;
+  return (
+    <Router
+      basename={
+        process.env.NODE_ENV === 'production' ? process.env.PUBLIC_URL : ''
+      }
+    >
+      {renderRoutes(routes)}
+    </Router>
+  );
 }
 
 export default App;
