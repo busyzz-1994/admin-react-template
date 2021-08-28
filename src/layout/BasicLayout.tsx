@@ -14,20 +14,13 @@ import { getBreadList } from './util';
 import { Layout, Menu } from 'antd';
 import { Link } from 'react-router-dom';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
-import {
-  MenuUnfoldOutlined,
-  MenuFoldOutlined,
-  UserOutlined,
-  // VideoCameraOutlined,
-  // UploadOutlined,
-  SettingOutlined,
-} from '@ant-design/icons';
+import { UserOutlined, SettingOutlined } from '@ant-design/icons';
+import Header from './Header';
 import styles from './index.module.scss';
-
-const { Header, Sider, Content } = Layout;
+const { Sider, Content } = Layout;
 const { SubMenu } = Menu;
-const navWitdhMax = 200;
-const navWitdhMin = 80;
+export const navWitdhMax = 200;
+export const navWitdhMin = 80;
 
 const getRouteItem = (routes, path) => {
   return routes.find((item) => item.path === path);
@@ -112,33 +105,7 @@ const BasicLayout: FC<RouteConfigComponentProps> = ({ route, location }) => {
         </Menu>
       </Sider>
       <Layout className='site-layout'>
-        <Header
-          className='site-layout-background'
-          style={{
-            padding: 0,
-            paddingLeft: collapsed ? navWitdhMin : navWitdhMax,
-            color: '#fff',
-            transition: '0.3s all',
-            position: 'absolute',
-            left: 0,
-            top: 0,
-            width: '100%',
-          }}
-        >
-          <div className={styles.header}>
-            <div className={styles.icon} onClick={toggleCololapsed}>
-              {React.createElement(
-                collapsed ? MenuUnfoldOutlined : MenuFoldOutlined,
-                {
-                  className: 'trigger',
-                }
-              )}
-            </div>
-            <div className={styles.handler}>
-              <div>oop</div>
-            </div>
-          </div>
-        </Header>
+        <Header onCollapsedClick={toggleCololapsed} collapsed={collapsed} />
         <Content
           className='site-layout-background'
           style={{

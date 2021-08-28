@@ -5,19 +5,3 @@
   color: #fff;
   text-align: center;
 }
-.header {
-  color: #fff;
-  display: flex;
-  padding: 0 20px;
-  > .icon {
-    font-size: 20px;
-    transition: 0.3s all;
-    cursor: pointer;
-    &:hover {
-      color: $primary-color;
-    }
-  }
-  > .handler {
-    margin-left: auto;
-  }
-}

@@ -22,7 +22,7 @@ const Login = () => {
     // 模拟登陆，提交表单
     console.log('Received values of form: ', values);
     setLoading(true);
-    await delay(2000);
+    await delay(1000);
     setLoading(false);
     if (values.remember) {
       Storage.setItem('username', values.username);
