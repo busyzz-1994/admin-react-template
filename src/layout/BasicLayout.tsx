@@ -3,7 +3,7 @@
  * @Date: 2021-08-27 10:41:57
  * @Description:
  */
-import React, { FC, useState } from 'react';
+import React, { FC, useState, useEffect } from 'react';
 import {
   renderRoutes,
   RouteConfigComponentProps,
@@ -13,6 +13,7 @@ import PageContainer from './PageContainer';
 import { getBreadList } from './util';
 import { Layout, Menu } from 'antd';
 import { Link } from 'react-router-dom';
+import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import {
   MenuUnfoldOutlined,
   MenuFoldOutlined,
@@ -31,16 +32,34 @@ const navWitdhMin = 80;
 const getRouteItem = (routes, path) => {
   return routes.find((item) => item.path === path);
 };
+const getDefaultSelectedKeys = (pathname) => {
+  const pathnameList = pathname.split('/');
+  const selectedKeys = [];
+  pathnameList.reduce((prev, current) => {
+    let item = prev + '/' + current;
+    selectedKeys.push(item);
+    return item;
+  });
+  return selectedKeys;
+};
 const BasicLayout: FC<RouteConfigComponentProps> = ({ route, location }) => {
   const [collapsed, setCollapsed] = useState(false);
+  const [selectedKeys, setSelectedKeys] = useState(() =>
+    getDefaultSelectedKeys(location.pathname)
+  );
+  const [openKeys, setOpenKeys] = useState(() =>
+    getDefaultSelectedKeys(location.pathname)
+  );
   const toggleCololapsed = () => {
     setCollapsed((prev) => !prev);
   };
   const { routes } = route;
   const breadList = getBreadList(routes, location.pathname);
+  const onOpenChange = (keys) => {
+    const latestOpenKey = keys.find((key) => openKeys.indexOf(key) === -1);
+    setOpenKeys(latestOpenKey ? [latestOpenKey] : []);
+  };
   const renderMenu = (routes: RouteConfig[], subMenus: string[]) => {
-    console.log(routes, 'routes-----');
-    console.log(subMenus, 'subMenus---');
     return (
       <>
         {subMenus.map((path) => {
@@ -63,6 +82,10 @@ const BasicLayout: FC<RouteConfigComponentProps> = ({ route, location }) => {
       </>
     );
   };
+  useEffect(() => {
+    setSelectedKeys(getDefaultSelectedKeys(location.pathname));
+    setOpenKeys(getDefaultSelectedKeys(location.pathname));
+  }, [location.pathname, setSelectedKeys, setOpenKeys]);
   return (
     <Layout>
       <Sider
@@ -78,7 +101,13 @@ const BasicLayout: FC<RouteConfigComponentProps> = ({ route, location }) => {
         collapsed={collapsed}
       >
         <div className={styles.logo}>react-admin</div>
-        <Menu theme='dark' mode='inline' defaultSelectedKeys={['1']}>
+        <Menu
+          theme='dark'
+          mode='inline'
+          openKeys={openKeys}
+          selectedKeys={selectedKeys}
+          onOpenChange={onOpenChange}
+        >
           {renderMenu(routes, routes[0].subMenus)}
         </Menu>
       </Sider>
@@ -123,7 +152,15 @@ const BasicLayout: FC<RouteConfigComponentProps> = ({ route, location }) => {
           }}
         >
           <PageContainer breadList={breadList}>
-            {renderRoutes(routes)}
+            <TransitionGroup>
+              <CSSTransition
+                key={location.pathname}
+                classNames={'slide'}
+                timeout={500}
+              >
+                {renderRoutes(routes)}
+              </CSSTransition>
+            </TransitionGroup>
           </PageContainer>
         </Content>
       </Layout>

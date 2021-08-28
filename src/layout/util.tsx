@@ -20,7 +20,6 @@ export const getBreadList = (
   list: Array<breadListItem> = []
 ) => {
   try {
-    console.log('pathname---', pathname);
     const branch = matchRoutes(routes, pathname);
     const {
       route: { name, path },

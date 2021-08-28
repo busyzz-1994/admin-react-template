@@ -305,21 +305,21 @@ module.exports = function (webpackEnv) {
       // https://twitter.com/wSokra/status/969633336732905474
       // https://medium.com/webpack/webpack-4-code-splitting-chunk-graph-and-the-splitchunks-optimization-be739a861366
       splitChunks: {
-        chunks: 'all',
-        name: isEnvDevelopment,
         // chunks: 'all',
         // name: isEnvDevelopment,
-        // minChunks: 1,
-        // cacheGroups: {
-        //   reactVendor: {
-        //     test: reactVendorsRegex,
-        //     name: 'reactVendor',
-        //   },
-        //   utilityVendor: {
-        //     test: utilVendorsRegex,
-        //     name: 'utilityVendor',
-        //   },
-        // },
+        chunks: 'all',
+        name: isEnvDevelopment,
+        minChunks: 1,
+        cacheGroups: {
+          reactVendor: {
+            test: reactVendorsRegex,
+            name: 'reactVendor',
+          },
+          utilityVendor: {
+            test: utilVendorsRegex,
+            name: 'utilityVendor',
+          },
+        },
       },
       // Keep the runtime chunk separated to enable long term caching
       // https://twitter.com/wSokra/status/969679223278505985

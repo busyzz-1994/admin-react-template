@@ -10,7 +10,6 @@ import styles from './index.module.scss';
 // };
 const Header = () => {
   const [count, setCount] = useState(0);
-  console.log('parent');
   return (
     <h1 className={styles.box}>
       <Child />

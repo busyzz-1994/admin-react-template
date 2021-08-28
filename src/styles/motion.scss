@@ -1,0 +1,19 @@
+// 切换路由动画
+.slide-enter {
+  opacity: 0;
+  transform: translate3d(100px, 0, 0);
+}
+.slide-enter-active {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+  transition: transform 0.3s;
+}
+.slide-exit {
+  opacity: 0;
+  transform: translate3d(0, 0, 0);
+  display: none;
+}
+.slide-exit-active {
+  opacity: 0;
+  transform: translate3d(100px, 0, 0);
+}

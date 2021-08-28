@@ -1,0 +1,5 @@
+// 禁止菜单被选中
+.ant-menu-item,
+.ant-menu-submenu {
+  user-select: none;
+}
