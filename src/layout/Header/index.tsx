@@ -33,9 +33,10 @@ const HeaderCom: FC<HeaderComProps> = ({ collapsed, onCollapsedClick }) => {
         paddingLeft: collapsed ? navWitdhMin : navWitdhMax,
         color: '#fff',
         transition: '0.3s all',
-        position: 'absolute',
+        position: 'fixed',
         left: 0,
         top: 0,
+        zIndex: 99,
         width: '100%',
       }}
     >

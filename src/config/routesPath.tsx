@@ -13,8 +13,8 @@ const routesPath = {
     standardEdit: '/form/standard/edit',
     step: '/form/step',
   },
-  dashborad: {
-    root: '/dashborad',
+  dashboard: {
+    root: '/dashboard',
   },
 };
 

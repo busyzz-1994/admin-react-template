@@ -3,5 +3,17 @@
   height: 64px;
   line-height: 64px;
   color: #fff;
-  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  flex-wrap: nowrap;
+  > img {
+    width: 30px;
+    height: 30px;
+    display: block;
+  }
+  > span {
+    margin-left: 10px;
+  }
 }

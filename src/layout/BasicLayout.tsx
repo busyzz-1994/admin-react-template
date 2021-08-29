@@ -17,19 +17,21 @@ import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import { UserOutlined, SettingOutlined } from '@ant-design/icons';
 import Header from './Header';
 import styles from './index.module.scss';
-const { Sider, Content } = Layout;
-const { SubMenu } = Menu;
+import logoImage from 'assets/images/logo.png';
+
 export const navWitdhMax = 200;
 export const navWitdhMin = 80;
 
-const getRouteItem = (routes, path) => {
-  return routes.find((item) => item.path === path);
-};
+const { Sider, Content } = Layout;
+const { SubMenu } = Menu;
+
+const getRouteItem = (routes, path) =>
+  routes.find((item) => item.path === path);
 const getDefaultSelectedKeys = (pathname) => {
   const pathnameList = pathname.split('/');
   const selectedKeys = [];
   pathnameList.reduce((prev, current) => {
-    let item = prev + '/' + current;
+    const item = prev + '/' + current;
     selectedKeys.push(item);
     return item;
   });
@@ -93,7 +95,10 @@ const BasicLayout: FC<RouteConfigComponentProps> = ({ route, location }) => {
         collapsible
         collapsed={collapsed}
       >
-        <div className={styles.logo}>react-admin</div>
+        <div className={styles.logo}>
+          <img src={logoImage} alt='-' />
+          {!collapsed && <span>admin</span>}
+        </div>
         <Menu
           theme='dark'
           mode='inline'
@@ -118,7 +123,7 @@ const BasicLayout: FC<RouteConfigComponentProps> = ({ route, location }) => {
             transition: '0.3s all',
           }}
         >
-          <PageContainer breadList={breadList}>
+          <PageContainer routes={routes} breadList={breadList}>
             <TransitionGroup>
               <CSSTransition
                 key={location.pathname}

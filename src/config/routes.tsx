@@ -15,6 +15,8 @@ const SuspenseComponent = (Component: ComponentType) => (props: any) => {
     </Suspense>
   );
 };
+/** DashBoard */
+const DashBoard = lazy(() => import('pages/dashboard'));
 
 /** Form */
 const StandardForm = lazy(() => import('pages/form/standard'));
@@ -24,9 +26,11 @@ const StepForm = lazy(() => import('pages/form/step'));
 /** Login */
 const Login = lazy(() => import('pages/login'));
 
-interface IMenuConfig extends RouteConfig {
+export interface IMenuConfig extends RouteConfig {
   // 在侧边栏显示的导航
   subMenus?: string[];
+  // 隐藏pageContainer
+  hidePageContainer?: boolean;
 }
 const routes: Array<IMenuConfig> = [
   {
@@ -41,7 +45,13 @@ const routes: Array<IMenuConfig> = [
         path: routesPath.root,
         exact: true,
         render: () => <Redirect to={routesPath.form.standard} />,
-        subMenus: [routesPath.form.root, routesPath.dashborad.root],
+        subMenus: [routesPath.dashboard.root, routesPath.form.root],
+      },
+      {
+        path: routesPath.dashboard.root,
+        name: 'dashboard',
+        hidePageContainer: true,
+        component: SuspenseComponent(DashBoard),
       },
       {
         path: routesPath.form.root,
@@ -52,7 +62,7 @@ const routes: Array<IMenuConfig> = [
       },
       {
         path: routesPath.form.standard,
-        name: '标准表单-1',
+        name: '标准表单',
         // exact: true,
         component: SuspenseComponent(StandardForm),
       },
@@ -65,11 +75,6 @@ const routes: Array<IMenuConfig> = [
         path: routesPath.form.step,
         name: '步骤',
         component: SuspenseComponent(StepForm),
-      },
-      {
-        path: routesPath.dashborad.root,
-        name: 'dashborad',
-        component: SuspenseComponent(StandardForm),
       },
     ],
   },
