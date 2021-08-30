@@ -8,12 +8,21 @@ import styles from './index.module.scss';
  */
 import * as echarts from 'echarts/core';
 import ReactEChartsCore from 'echarts-for-react/lib/core';
-import { optionsLine } from './options';
+import 'echarts-liquidfill/src/liquidFill.js';
+import {
+  optionsLine,
+  optionsBar,
+  optionsPie,
+  optionsProgress,
+  optionsArray,
+} from './options';
 import {
   BarChart,
   BarSeriesOption,
   LineChart,
   LineSeriesOption,
+  PieChart,
+  PieSeriesOption,
 } from 'echarts/charts';
 import {
   TitleComponent,
@@ -33,6 +42,7 @@ import { CanvasRenderer } from 'echarts/renderers';
 export type ECOption = echarts.ComposeOption<
   | BarSeriesOption
   | LineSeriesOption
+  | PieSeriesOption
   | TitleComponentOption
   | GridComponentOption
   | TooltipComponentOption
@@ -43,6 +53,7 @@ export type ECOption = echarts.ComposeOption<
 echarts.use([
   BarChart,
   LineChart,
+  PieChart,
   TitleComponent,
   TooltipComponent,
   GridComponent,
@@ -64,7 +75,7 @@ const DashBoard: FC = () => {
       <Alert
         type='info'
         showIcon
-        message='图形依赖 echarts v5，支持按需引入 v5 版本对 Tree-shaking 兼容更友好了，配合 echarts-for-react 实现'
+        message='图形依赖 echarts v5，支持按需引入 v5 版本对 Tree-shaking 兼容更友好了，配合 echarts-for-react 实现，如果不需要图表请删除该页面，减少包的体积'
       />
       <div className={styles.container}>
         <Row gutter={rowGutter}>
@@ -80,24 +91,43 @@ const DashBoard: FC = () => {
             </Card>
           </Col>
           <Col span={12}>
-            <Card title='Card title' bordered={false}>
-              <p>Card content</p>
-              <p>Card content</p>
-              <p>Card content</p>
+            <Card title='柱状图' bordered={false}>
+              <ReactEChartsCore
+                echarts={echarts}
+                option={optionsBar}
+                notMerge={true}
+                lazyUpdate={true}
+              />
             </Card>
           </Col>
           <Col span={12}>
-            <Card title='Card title' bordered={false}>
-              <p>Card content</p>
-              <p>Card content</p>
-              <p>Card content</p>
+            <Card title='饼状图' bordered={false}>
+              <ReactEChartsCore
+                echarts={echarts}
+                option={optionsPie}
+                notMerge={true}
+                lazyUpdate={true}
+              />
             </Card>
           </Col>
           <Col span={12}>
-            <Card title='Card title' bordered={false}>
-              <p>Card content</p>
-              <p>Card content</p>
-              <p>Card content</p>
+            <Card title='水波纹' bordered={false}>
+              <ReactEChartsCore
+                echarts={echarts}
+                option={optionsProgress}
+                notMerge={true}
+                lazyUpdate={true}
+              />
+            </Card>
+          </Col>
+          <Col span={24}>
+            <Card title='环形图' bordered={false}>
+              <ReactEChartsCore
+                echarts={echarts}
+                option={optionsArray}
+                notMerge={true}
+                lazyUpdate={true}
+              />
             </Card>
           </Col>
         </Row>

@@ -68,7 +68,7 @@ const reactVendorsRegex =
   /[\\/]node_modules[\\/](react|react-dom|react-router-dom|react-router|history)[\\/]/;
 const utilVendorsRegex =
   /[\\/]node_modules[\\/](lodash|moment|moment-timezone|dayjs)[\\/]/;
-
+const echartsRegex = /[\\/]node_modules[\\/](echarts|zrender)[\\/]/;
 const hasJsxRuntime = (() => {
   if (process.env.DISABLE_NEW_JSX_TRANSFORM === 'true') {
     return false;
@@ -318,6 +318,10 @@ module.exports = function (webpackEnv) {
           utilityVendor: {
             test: utilVendorsRegex,
             name: 'utilityVendor',
+          },
+          echartsVendor: {
+            test: echartsRegex,
+            name: 'echartsVendor',
           },
         },
       },
