@@ -7,15 +7,19 @@ import React from 'react';
 import { renderRoutes } from 'react-router-config';
 import routes from 'config/routes';
 import { BrowserRouter as Router } from 'react-router-dom';
+import { ConfigProvider } from 'antd';
+import zhCN from 'antd/lib/locale/zh_CN';
 function App() {
   return (
-    <Router
-      basename={
-        process.env.NODE_ENV === 'production' ? process.env.PUBLIC_URL : ''
-      }
-    >
-      {renderRoutes(routes)}
-    </Router>
+    <ConfigProvider locale={zhCN}>
+      <Router
+        basename={
+          process.env.NODE_ENV === 'production' ? process.env.PUBLIC_URL : ''
+        }
+      >
+        {renderRoutes(routes)}
+      </Router>
+    </ConfigProvider>
   );
 }
 

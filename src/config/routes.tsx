@@ -19,8 +19,10 @@ const SuspenseComponent = (Component: ComponentType) => (props: any) => {
 const DashBoard = lazy(() => import('pages/dashboard'));
 
 /** Form */
-const StandardForm = lazy(() => import('pages/form/standard'));
-const StandardFormEdit = lazy(() => import('pages/form/standard/edit'));
+// const StandardForm = lazy(() => import('pages/form/standard'));
+const StandardBasicForm = lazy(() => import('pages/form/standard/basic'));
+const StandardDynamicForm = lazy(() => import('pages/form/standard/dynamic'));
+
 const StepForm = lazy(() => import('pages/form/step'));
 
 /** Login */
@@ -63,17 +65,26 @@ const routes: Array<IMenuConfig> = [
       {
         path: routesPath.form.standard,
         name: '标准表单',
-        // exact: true,
-        component: SuspenseComponent(StandardForm),
+        exact: true,
+        render: () => <Redirect to={routesPath.form.standardBasic} />,
+        subMenus: [
+          routesPath.form.standardBasic,
+          routesPath.form.standardDynamic,
+        ],
       },
       {
-        path: routesPath.form.standardEdit,
-        name: '编辑表单',
-        component: SuspenseComponent(StandardFormEdit),
+        path: routesPath.form.standardBasic,
+        name: '基础表单',
+        component: SuspenseComponent(StandardBasicForm),
+      },
+      {
+        path: routesPath.form.standardDynamic,
+        name: '动态表单',
+        component: SuspenseComponent(StandardDynamicForm),
       },
       {
         path: routesPath.form.step,
-        name: '步骤',
+        name: '步骤表单',
         component: SuspenseComponent(StepForm),
       },
     ],

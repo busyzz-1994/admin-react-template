@@ -50,10 +50,10 @@ const BasicLayout: FC<RouteConfigComponentProps> = ({ route, location }) => {
   };
   const { routes } = route;
   const breadList = getBreadList(routes, location.pathname);
-  const onOpenChange = (keys) => {
-    const latestOpenKey = keys.find((key) => openKeys.indexOf(key) === -1);
-    setOpenKeys(latestOpenKey ? [latestOpenKey] : []);
-  };
+  // const onOpenChange = (keys) => {
+  //   const latestOpenKey = keys.find((key) => openKeys.indexOf(key) === -1);
+  //   setOpenKeys(latestOpenKey ? [latestOpenKey] : []);
+  // };
   const renderMenu = (routes: RouteConfig[], subMenus: string[]) => {
     return (
       <>
@@ -102,9 +102,10 @@ const BasicLayout: FC<RouteConfigComponentProps> = ({ route, location }) => {
         <Menu
           theme='dark'
           mode='inline'
-          openKeys={openKeys}
+          // deopenKeys={openKeys}
+          defaultOpenKeys={openKeys}
           selectedKeys={selectedKeys}
-          onOpenChange={onOpenChange}
+          // onOpenChange={onOpenChange}
         >
           {renderMenu(routes, routes[0].subMenus)}
         </Menu>

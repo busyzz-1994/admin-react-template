@@ -10,7 +10,8 @@ const routesPath = {
   form: {
     root: '/form',
     standard: '/form/standard',
-    standardEdit: '/form/standard/edit',
+    standardBasic: '/form/standard/basic',
+    standardDynamic: '/form/standard/dynamic',
     step: '/form/step',
   },
   dashboard: {
