@@ -64,6 +64,9 @@ const Basic: FC = () => {
         }}
         {...formItemLayout}
       >
+        <Form.Item label='Plain Text'>
+          <span className='ant-form-text'>China</span>
+        </Form.Item>
         <Form.Item
           name='email'
           label='E-mail'

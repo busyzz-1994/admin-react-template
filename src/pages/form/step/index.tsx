@@ -57,14 +57,16 @@ const StepForm: FC = () => {
     setCurrentStep(currentStep - 1);
   };
   const onSubmit = () => {
-    const data = {
-      ...formData,
-      ...form.getFieldsValue(),
-    };
-    console.log(data, 'data');
-    setIsSaved(true);
-    setFormData(data);
-    message.success(JSON.stringify(data));
+    form.validateFields().then((values) => {
+      const data = {
+        ...formData,
+        ...values,
+      };
+      console.log(data, 'data');
+      setIsSaved(true);
+      setFormData(data);
+      message.success(JSON.stringify(data));
+    });
   };
 
   return (

@@ -13,6 +13,7 @@ const routesPath = {
     standardBasic: '/form/standard/basic',
     standardDynamic: '/form/standard/dynamic',
     step: '/form/step',
+    custom: '/form/custom',
   },
   dashboard: {
     root: '/dashboard',
