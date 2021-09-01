@@ -131,7 +131,7 @@ const BasicLayout: FC<RouteConfigComponentProps> = ({ route, location }) => {
                 classNames={'slide'}
                 timeout={500}
               >
-                {renderRoutes(routes)}
+                <div>{renderRoutes(routes)}</div>
               </CSSTransition>
             </TransitionGroup>
           </PageContainer>

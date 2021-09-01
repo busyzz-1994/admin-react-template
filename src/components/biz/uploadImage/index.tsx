@@ -7,6 +7,10 @@ import React, { FC } from 'react';
 import ImgCrop, { ImgCropProps } from 'antd-img-crop';
 import { Upload } from 'antd';
 import { UploadProps } from 'antd/lib/upload';
+
+/**
+ * @see https://www.npmjs.com/package/antd-img-crop
+ */
 interface IUploadImageProps extends ImgCropProps {
   value?: UploadProps['fileList'];
   onChange?: (value: UploadProps['fileList']) => void;

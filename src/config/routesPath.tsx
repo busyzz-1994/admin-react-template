@@ -15,6 +15,11 @@ const routesPath = {
     step: '/form/step',
     custom: '/form/custom',
   },
+  table: {
+    root: '/table',
+    basic: '/table/basic',
+    combination: '/table/combination',
+  },
   dashboard: {
     root: '/dashboard',
   },

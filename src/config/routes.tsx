@@ -23,6 +23,9 @@ const StandardBasicForm = lazy(() => import('pages/form/standard/basic'));
 const StandardDynamicForm = lazy(() => import('pages/form/standard/dynamic'));
 const StepForm = lazy(() => import('pages/form/step'));
 const CustomFrom = lazy(() => import('pages/form/custom'));
+/** Table */
+const BasicTable = lazy(() => import('pages/table/basic'));
+const CombinationTable = lazy(() => import('pages/table/combination'));
 /** Login */
 const Login = lazy(() => import('pages/login'));
 
@@ -44,8 +47,12 @@ const routes: Array<IMenuConfig> = [
       {
         path: routesPath.root,
         exact: true,
-        render: () => <Redirect to={routesPath.form.standard} />,
-        subMenus: [routesPath.dashboard.root, routesPath.form.root],
+        render: () => <Redirect to={routesPath.dashboard.root} />,
+        subMenus: [
+          routesPath.dashboard.root,
+          routesPath.form.root,
+          routesPath.table.root,
+        ],
       },
       {
         path: routesPath.dashboard.root,
@@ -53,6 +60,7 @@ const routes: Array<IMenuConfig> = [
         hidePageContainer: true,
         component: SuspenseComponent(DashBoard),
       },
+      // 表单相关
       {
         path: routesPath.form.root,
         name: '表单',
@@ -93,6 +101,24 @@ const routes: Array<IMenuConfig> = [
         path: routesPath.form.custom,
         name: '自定义表单',
         component: SuspenseComponent(CustomFrom),
+      },
+      // 表格相关
+      {
+        path: routesPath.table.root,
+        name: '表格',
+        exact: true,
+        subMenus: [routesPath.table.basic, routesPath.table.combination],
+        render: () => <Redirect to={routesPath.table.basic} />,
+      },
+      {
+        path: routesPath.table.basic,
+        name: '基础表格',
+        component: SuspenseComponent(BasicTable),
+      },
+      {
+        path: routesPath.table.combination,
+        name: '复合表格',
+        component: SuspenseComponent(CombinationTable),
       },
     ],
   },

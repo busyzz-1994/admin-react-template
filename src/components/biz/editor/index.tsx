@@ -3,11 +3,16 @@
  * @Date: 2021-08-31 16:31:04
  * @Description:
  */
+
 import React, { forwardRef } from 'react';
 import ReactQuill from 'react-quill';
 import * as Quill from 'quill';
 import 'react-quill/dist/quill.snow.css';
 import styles from './index.module.scss';
+
+/**
+ * @see https://github.com/zenoamaro/react-quill
+ */
 interface UnprivilegedEditor {
   getLength(): number;
   getText(index?: number, length?: number): string;
@@ -36,8 +41,9 @@ interface IEditorProps {
 }
 const modules = {
   toolbar: [
-    [{ header: [1, 2, 3, false] }],
+    [{ header: [1, 2, 3, 4, 5, false] }],
     ['bold', 'italic', 'underline', 'strike', 'blockquote'],
+    [{ color: [] }, { background: [] }],
     [
       { list: 'ordered' },
       { list: 'bullet' },
@@ -47,6 +53,24 @@ const modules = {
     ['link', 'image', 'video'],
   ],
 };
+const formats = [
+  'header',
+  'font',
+  'size',
+  'bold',
+  'italic',
+  'underline',
+  'strike',
+  'blockquote',
+  'color',
+  'background',
+  'list',
+  'bullet',
+  'indent',
+  'link',
+  'image',
+  'video',
+];
 const Editor = forwardRef<ReactQuillInstance, IEditorProps>(
   ({ value, onChange }, ref) => {
     return (
@@ -57,6 +81,7 @@ const Editor = forwardRef<ReactQuillInstance, IEditorProps>(
         defaultValue={value}
         onChange={onChange}
         modules={modules}
+        formats={formats}
       />
     );
   }
