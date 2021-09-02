@@ -8,6 +8,7 @@ import { renderRoutes } from 'react-router-config';
 import routes from 'config/routes';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { ConfigProvider } from 'antd';
+import ScrollToTop from 'components/ui/scrollToTop';
 import zhCN from 'antd/lib/locale/zh_CN';
 function App() {
   return (
@@ -17,7 +18,7 @@ function App() {
           process.env.NODE_ENV === 'production' ? process.env.PUBLIC_URL : ''
         }
       >
-        {renderRoutes(routes)}
+        <ScrollToTop>{renderRoutes(routes)}</ScrollToTop>
       </Router>
     </ConfigProvider>
   );

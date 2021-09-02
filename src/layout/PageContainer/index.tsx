@@ -24,7 +24,10 @@ const PageContainer: FC<IPageContainerProps> = ({
 }) => {
   const location = useLocation();
   const branch = matchRoutes(routes, location.pathname);
-  const hidePageContainer = branch[0]?.route?.hidePageContainer;
+  // 如果没有匹配到任何路由
+  const isNotmatched = branch[0]?.route?.name === 'notFound';
+  const hidePageContainer = isNotmatched || branch[0]?.route?.hidePageContainer;
+
   return hidePageContainer ? (
     children
   ) : (

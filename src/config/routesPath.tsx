@@ -7,6 +7,9 @@
 const routesPath = {
   root: '/',
   login: '/login',
+  dashboard: {
+    root: '/dashboard',
+  },
   form: {
     root: '/form',
     standard: '/form/standard',
@@ -20,8 +23,11 @@ const routesPath = {
     basic: '/table/basic',
     combination: '/table/combination',
   },
-  dashboard: {
-    root: '/dashboard',
+  exception: {
+    root: '/exception',
+    exception_404: '/exception/404',
+    exception_403: '/exception/403',
+    exception_500: '/exception/500',
   },
 };
 

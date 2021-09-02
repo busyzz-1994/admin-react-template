@@ -5,12 +5,14 @@
  */
 import React, { Suspense, lazy, ComponentType } from 'react';
 import { RouteConfig } from 'react-router-config';
+import PageLoading from 'components/ui/pageLoading';
 import { Redirect } from 'react-router-dom';
 import BasicLayout from 'layout/BasicLayout';
 import routesPath from './routesPath';
+
 const SuspenseComponent = (Component: ComponentType) => (props: any) => {
   return (
-    <Suspense fallback={null}>
+    <Suspense fallback={PageLoading}>
       <Component {...props} />
     </Suspense>
   );
@@ -26,6 +28,10 @@ const CustomFrom = lazy(() => import('pages/form/custom'));
 /** Table */
 const BasicTable = lazy(() => import('pages/table/basic'));
 const CombinationTable = lazy(() => import('pages/table/combination'));
+/** Exception */
+const Exception_403 = lazy(() => import('pages/exception/403'));
+const Exception_404 = lazy(() => import('pages/exception/404'));
+const Exception_500 = lazy(() => import('pages/exception/500'));
 /** Login */
 const Login = lazy(() => import('pages/login'));
 
@@ -52,6 +58,7 @@ const routes: Array<IMenuConfig> = [
           routesPath.dashboard.root,
           routesPath.form.root,
           routesPath.table.root,
+          routesPath.exception.root,
         ],
       },
       {
@@ -119,6 +126,38 @@ const routes: Array<IMenuConfig> = [
         path: routesPath.table.combination,
         name: '复合表格',
         component: SuspenseComponent(CombinationTable),
+      },
+      // 异常页面
+      {
+        path: routesPath.exception.root,
+        name: '异常页面',
+        exact: true,
+        subMenus: [
+          routesPath.exception.exception_403,
+          routesPath.exception.exception_404,
+          routesPath.exception.exception_500,
+        ],
+        render: () => <Redirect to={routesPath.exception.exception_403} />,
+      },
+      {
+        path: routesPath.exception.exception_403,
+        name: '403',
+        component: SuspenseComponent(Exception_403),
+      },
+      {
+        path: routesPath.exception.exception_404,
+        name: '404',
+        component: SuspenseComponent(Exception_404),
+      },
+      {
+        path: routesPath.exception.exception_500,
+        name: '500',
+        component: SuspenseComponent(Exception_500),
+      },
+      // 未匹配上任何路由
+      {
+        component: SuspenseComponent(Exception_404),
+        name: 'notFound',
       },
     ],
   },

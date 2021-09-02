@@ -1,19 +1,22 @@
 @import '~styles/index.scss';
 .logo {
-  height: 64px;
-  line-height: 64px;
+  height: 54px;
+  line-height: 54px;
   color: #fff;
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
   flex-wrap: nowrap;
+  cursor: pointer;
   > img {
     width: 30px;
     height: 30px;
     display: block;
   }
-  > span {
+  > h2 {
+    color: #fff;
+    margin: 0;
     margin-left: 10px;
   }
 }

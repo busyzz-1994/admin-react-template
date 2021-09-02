@@ -9,13 +9,14 @@ import {
   RouteConfigComponentProps,
   RouteConfig,
 } from 'react-router-config';
-import PageContainer from './PageContainer';
+import routesPath from 'config/routesPath';
+import PageContainer from './pageContainer';
 import { getBreadList } from './util';
 import { Layout, Menu } from 'antd';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import { UserOutlined, SettingOutlined } from '@ant-design/icons';
-import Header from './Header';
+import Header from './header';
 import styles from './index.module.scss';
 import logoImage from 'assets/images/logo.png';
 
@@ -38,6 +39,7 @@ const getDefaultSelectedKeys = (pathname) => {
   return selectedKeys;
 };
 const BasicLayout: FC<RouteConfigComponentProps> = ({ route, location }) => {
+  const history = useHistory();
   const [collapsed, setCollapsed] = useState(false);
   const [selectedKeys, setSelectedKeys] = useState(() =>
     getDefaultSelectedKeys(location.pathname)
@@ -95,9 +97,12 @@ const BasicLayout: FC<RouteConfigComponentProps> = ({ route, location }) => {
         collapsible
         collapsed={collapsed}
       >
-        <div className={styles.logo}>
+        <div
+          className={styles.logo}
+          onClick={() => history.push(routesPath.root)}
+        >
           <img src={logoImage} alt='-' />
-          {!collapsed && <span>admin</span>}
+          {!collapsed && <h2>admin</h2>}
         </div>
         <Menu
           theme='dark'
@@ -115,10 +120,9 @@ const BasicLayout: FC<RouteConfigComponentProps> = ({ route, location }) => {
         <Content
           className='site-layout-background'
           style={{
-            margin: '0px 16px',
             padding: 24,
-            paddingTop: 88,
-            paddingLeft: collapsed ? navWitdhMin : navWitdhMax,
+            paddingTop: 78,
+            paddingLeft: collapsed ? navWitdhMin + 24 : navWitdhMax + 24,
             boxSizing: 'border-box',
             minHeight: '100vh',
             transition: '0.3s all',

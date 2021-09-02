@@ -14,7 +14,7 @@
       name="description"
       content="Web site created using create-react-app"
     />
-    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+    <!-- <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" /> -->
     <!--
       manifest.json provides metadata used when your web app is installed on a
       user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
@@ -30,10 +30,79 @@
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
     <title>react-admin-template</title>
+    <style>
+      body,
+      html {
+        padding: 0;
+        margin: 0;
+      }
+      #loading-wrapper {
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background: #f0f2f5;
+      }
+      #loading-text {
+        color: rgba(0, 0, 0, 0.45);
+        margin-top: 15px;
+        font-size: 12px;
+      }
+      #loading {
+        display: flex;
+      }
+      #loading span {
+        width: 3px;
+        height: 15px;
+        margin: 3px;
+        background: gray;
+        border-radius: 3px;
+        animation: loadingAnimation 1s infinite;
+      }
+      #loading span:first-child {
+        animation-delay: 0s;
+      }
+      #loading span:nth-child(2) {
+        animation-delay: -0.2s;
+      }
+      #loading span:nth-child(3) {
+        animation-delay: -0.4s;
+      }
+      #loading span:nth-child(4) {
+        animation-delay: -0.6s;
+      }
+      #loading span:nth-child(5) {
+        animation-delay: -0.8s;
+      }
+      @keyframes loadingAnimation {
+        0% {
+          transform: scaleY(1);
+        }
+        50% {
+          transform: scaleY(2);
+        }
+        100% {
+          transform: scaleY(1);
+        }
+      }
+    </style>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
+    <div id="root">
+      <div id="loading-wrapper">
+        <div id="loading">
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <div id="loading-text">页面加载中...</div>
+      </div>
+    </div>
     <!--
       This HTML file is a template.
       If you open it directly in the browser, you will see an empty page.
