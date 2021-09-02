@@ -1,0 +1,26 @@
+.page {
+  width: 200px;
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  .header,
+  .footer {
+    height: 30px;
+    line-height: 30px;
+    background: #e6f7ff;
+    text-align: center;
+  }
+  .content {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    > img {
+      display: block;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+    }
+  }
+}

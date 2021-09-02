@@ -26,6 +26,7 @@ const routesPath = {
   components: {
     root: '/components',
     images: '/components/images',
+    download: '/components/download',
   },
   exception: {
     root: '/exception',

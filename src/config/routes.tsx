@@ -30,6 +30,7 @@ const BasicTable = lazy(() => import('pages/table/basic'));
 const CombinationTable = lazy(() => import('pages/table/combination'));
 /** Components */
 const ImagesComponents = lazy(() => import('pages/components/images'));
+const DownloadComponents = lazy(() => import('pages/components/download'));
 /** Exception */
 const Exception_403 = lazy(() => import('pages/exception/403'));
 const Exception_404 = lazy(() => import('pages/exception/404'));
@@ -138,13 +139,21 @@ const routes: Array<IMenuConfig> = [
         path: routesPath.components.root,
         name: '常用组件',
         exact: true,
-        subMenus: [routesPath.components.images],
+        subMenus: [
+          routesPath.components.images,
+          routesPath.components.download,
+        ],
         render: () => <Redirect to={routesPath.components.images} />,
       },
       {
         path: routesPath.components.images,
         name: '图片',
         component: SuspenseComponent(ImagesComponents),
+      },
+      {
+        path: routesPath.components.download,
+        name: '下载/复制',
+        component: SuspenseComponent(DownloadComponents),
       },
       // 异常页面
       {

@@ -5,12 +5,11 @@
  */
 import React, { useState } from 'react';
 import { Image } from 'antd';
-import styles from './index.module.scss';
 import Section from 'components/ui/section';
 const ImagePage = () => {
   const [visible, setVisible] = useState(false);
   return (
-    <div className={styles.container}>
+    <>
       <Section>单击图像可以放大显示</Section>
       <Image
         width={200}
@@ -39,7 +38,7 @@ const ImagePage = () => {
           <Image src='https://gw.alipayobjects.com/zos/antfincdn/x43I27A55%26/photo-1438109491414-7198515b166b.webp' />
         </Image.PreviewGroup>
       </div>
-    </div>
+    </>
   );
 };
 
