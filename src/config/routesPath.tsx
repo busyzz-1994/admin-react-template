@@ -23,11 +23,18 @@ const routesPath = {
     basic: '/table/basic',
     combination: '/table/combination',
   },
+  components: {
+    root: '/components',
+    images: '/components/images',
+  },
   exception: {
     root: '/exception',
     exception_404: '/exception/404',
     exception_403: '/exception/403',
     exception_500: '/exception/500',
+  },
+  setting: {
+    root: '/setting',
   },
 };
 

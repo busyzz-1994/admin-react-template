@@ -28,10 +28,14 @@ const CustomFrom = lazy(() => import('pages/form/custom'));
 /** Table */
 const BasicTable = lazy(() => import('pages/table/basic'));
 const CombinationTable = lazy(() => import('pages/table/combination'));
+/** Components */
+const ImagesComponents = lazy(() => import('pages/components/images'));
 /** Exception */
 const Exception_403 = lazy(() => import('pages/exception/403'));
 const Exception_404 = lazy(() => import('pages/exception/404'));
 const Exception_500 = lazy(() => import('pages/exception/500'));
+/** Setting */
+const Setting = lazy(() => import('pages/setting'));
 /** Login */
 const Login = lazy(() => import('pages/login'));
 
@@ -58,7 +62,9 @@ const routes: Array<IMenuConfig> = [
           routesPath.dashboard.root,
           routesPath.form.root,
           routesPath.table.root,
+          routesPath.components.root,
           routesPath.exception.root,
+          routesPath.setting.root,
         ],
       },
       {
@@ -127,6 +133,19 @@ const routes: Array<IMenuConfig> = [
         name: '复合表格',
         component: SuspenseComponent(CombinationTable),
       },
+      // 常用组件
+      {
+        path: routesPath.components.root,
+        name: '常用组件',
+        exact: true,
+        subMenus: [routesPath.components.images],
+        render: () => <Redirect to={routesPath.components.images} />,
+      },
+      {
+        path: routesPath.components.images,
+        name: '图片',
+        component: SuspenseComponent(ImagesComponents),
+      },
       // 异常页面
       {
         path: routesPath.exception.root,
@@ -153,6 +172,13 @@ const routes: Array<IMenuConfig> = [
         path: routesPath.exception.exception_500,
         name: '500',
         component: SuspenseComponent(Exception_500),
+      },
+      // 设置页面
+      {
+        path: routesPath.setting.root,
+        name: '设置',
+        hidePageContainer: true,
+        component: SuspenseComponent(Setting),
       },
       // 未匹配上任何路由
       {

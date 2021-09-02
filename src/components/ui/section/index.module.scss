@@ -1,0 +1,10 @@
+@import '~styles/index.scss';
+.container {
+  height: 40px;
+  line-height: 40px;
+  color: $primary-color;
+  background-color: #e6f7ff;
+  padding: 0 20px;
+  border-left: 3px solid $primary-color;
+  margin: 20px 0;
+}

@@ -1,0 +1,13 @@
+.container {
+  display: flex;
+  background-color: #fff;
+  padding: 16px 0;
+  .left {
+    :global(.ant-menu) {
+      height: 100%;
+    }
+  }
+  .right {
+    padding-left: 20px;
+  }
+}

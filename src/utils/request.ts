@@ -21,7 +21,7 @@ const errorCodeMap = {
 const request = extend({
   getResponse: true,
 });
-// request拦截器, 改变url 或 options.
+// request拦截器, 改变 url 或 options.
 request.interceptors.request.use((url, options) => {
   console.log(url, '--url--');
   console.log(options, '--options--');
