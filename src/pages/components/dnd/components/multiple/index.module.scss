@@ -1,0 +1,28 @@
+.wrapper {
+  display: flex;
+}
+.container {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  width: 300px;
+  min-height: 300px;
+  margin-right: 30px;
+}
+.title {
+  font-size: 20px;
+  font-weight: bold;
+}
+.list {
+  padding: 8px 0;
+  .item {
+    padding: 8px;
+    margin-bottom: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    user-select: none;
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}

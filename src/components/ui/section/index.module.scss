@@ -1,6 +1,6 @@
 @import '~styles/index.scss';
 .container {
-  height: 40px;
+  min-height: 40px;
   line-height: 40px;
   color: $primary-color;
   background-color: #e6f7ff;
