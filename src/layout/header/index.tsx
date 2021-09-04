@@ -1,5 +1,11 @@
-import React, { FC } from 'react';
+/*
+ * @Author: busyzz
+ * @Date: 2021-09-02 17:26:47
+ * @Description:
+ */
+import React, { FC, useContext } from 'react';
 import { Layout, Menu, Dropdown, Tooltip } from 'antd';
+import { GlobalContext } from 'context';
 import { navWitdhMin, navWitdhMax } from '../BasicLayout';
 import {
   MenuUnfoldOutlined,
@@ -9,7 +15,6 @@ import {
 import { Link } from 'react-router-dom';
 import routesPath from 'config/routesPath';
 import styles from './index.module.scss';
-import avatarImg from 'assets/images/avatar.jpg';
 import wxqrCodeImg from 'assets/images/wxqrcode.jpg';
 const { Header } = Layout;
 interface HeaderComProps {
@@ -25,6 +30,7 @@ const MenuList = (
   </Menu>
 );
 const HeaderCom: FC<HeaderComProps> = ({ collapsed, onCollapsedClick }) => {
+  const state = useContext(GlobalContext);
   return (
     <Header
       className='site-layout-background'
@@ -57,8 +63,8 @@ const HeaderCom: FC<HeaderComProps> = ({ collapsed, onCollapsedClick }) => {
           </Tooltip>
           <Dropdown overlay={MenuList}>
             <div className={styles.avatar}>
-              <img src={avatarImg} alt='-' />
-              <span>busyzz</span>
+              <img src={state.avatar} alt='-' />
+              <span>{state.name}</span>
             </div>
           </Dropdown>
         </div>

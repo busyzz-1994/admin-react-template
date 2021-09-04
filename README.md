@@ -1,4 +1,4 @@
-## 线上参考地址
+## 线上预览地址
 
 [react-admin-template](https://busyzz-1994.github.io/admin-react-template)
 
@@ -84,6 +84,35 @@ module.exports = function (app) {
 
 以 `.scss` 结尾的为全局样式, 以 `.module.scss` 结尾的使用 css-modules
 
+## state 状态相关
+
+由于 B 端应用一般不会有太多公用的状态，所以在该应用中使用 `React.useReducer` 配合 `Context` 作为状态管理
+
+使用状态例子查看 `src/layout/header/index.tsx`
+
+```js
+import { GlobalContext } from 'context';
+const state = useContext(GlobalContext);
+```
+
+修改状态 `APP.tsx` , `dispatch` 的类型和对应的状态修改查看 `src/context/reducer.ts`;
+
+```js
+import { GlobalContext } from 'context';
+const {dispatch} = useContext(GlobalContext);
+const onClick = ()=>{
+  dispatch({
+    type:'xxx',
+    preload:{
+      name:'busyzz',
+      ...
+    }
+  })
+}
+```
+
+如果状态比较复杂，可以使用 `redux`、`mobx`、`dva` 等状态管理库
+
 ## 目录相关 （认真阅读）
 
 ```js
@@ -116,6 +145,7 @@ module.exports = function (app) {
         |   |-- layout.tsx // 布局相关配置
         |   |-- routes.tsx // 路由配置
         |   |-- routesPath.tsx // 路由对应的path路径
+        |-- context // 全局状态
         |-- hooks // 自定义hooks
         |-- layout // 页面布局相关
         |-- pages // 页面文件
