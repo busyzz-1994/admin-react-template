@@ -41,6 +41,63 @@ yarn analyz
 
 对打包后的文件进行分析
 
+## Feature
+
+[x] 使用 `react-refresh` 实现 `HMR` , 可以实现父级组件状态的保存, Class 类型的组件不生效
+[x] 通过 `src/config/routes.tsx` 配置自动生成左边菜单栏以及面包屑导航栏
+[x] 懒加载页面
+[x] 支持 `echarts` 图标
+[x] 支持 `source-map` 本地调试
+[] 支持 antd 主题
+
+## 目录相关
+
+```js
+|-- APP
+    |-- .editorconfig // 编辑器配置
+    |-- .env // 配置环境变量
+    |-- .env-cmdrc.js // 配置不同环境下的环境变量
+    |-- .gitignore // git忽略文件
+    |-- .npmrc // npm下载源 设置的taobao镜像
+    |-- .prettierrc // 代码格式化配置文件
+    |-- .travis.yml // travis配置文件
+    |-- README.md // 文档
+    |-- package.json
+    |-- tsconfig.json // ts配置文件
+    |-- yarn.lock
+    |-- build // 打包生成的文件
+    |-- config // webpack配置相关文件
+    |-- public // 静态资源文件
+    |-- scripts // npm 执行脚本文件 包含 start 和 build
+    |-- src
+        |-- App.tsx // 应用入口文件
+        |-- index.tsx // 入口文件引入初始化依赖
+        |-- react-app-env.d.ts // typescript类型声明文件
+        |-- setupProxy.js // 请求代理配置文件
+        |-- assets // 资源文件夹 存放图片、字体等
+        |-- components // 公共组件
+        |   |-- biz // 业务相关组件
+        |   |-- ui // UI相关组件
+        |-- config // 配置相关
+        |   |-- layout.tsx // 布局相关配置
+        |   |-- routes.tsx // 路由配置
+        |   |-- routesPath.tsx // 路由对应的path路径
+        |-- context // 全局状态
+        |-- hooks // 自定义hooks
+        |-- layout // 页面布局相关
+        |-- pages // 页面文件
+        |-- polyfill // polyfill 兼容 ie 11
+        |-- service // 请求接口
+        |-- styles // 样式相关文件
+        |   |-- antd-reset.scss  // 重置antd默认样式
+        |   |-- index.scss // 入口
+        |   |-- motion.scss // 动画相关
+        |   |-- variables.scss // 变量
+        |-- typings
+        |   |-- global.d.ts // window下的typescript类型设置
+        |-- utils // 工具类文件
+```
+
 ## 环境相关
 
 ### `环境变量`
@@ -112,51 +169,3 @@ const onClick = ()=>{
 ```
 
 如果状态比较复杂，可以使用 `redux`、`mobx`、`dva` 等状态管理库
-
-## 目录相关 （认真阅读）
-
-```js
-|-- APP
-    |-- .editorconfig // 编辑器配置
-    |-- .env // 配置环境变量
-    |-- .env-cmdrc.js // 配置不同环境下的环境变量
-    |-- .gitignore // git忽略文件
-    |-- .npmrc // npm下载源 设置的taobao镜像
-    |-- .prettierrc // 代码格式化配置文件
-    |-- .travis.yml // travis配置文件
-    |-- README.md // 文档
-    |-- package.json
-    |-- tsconfig.json // ts配置文件
-    |-- yarn.lock
-    |-- build // 打包生成的文件
-    |-- config // webpack配置相关文件
-    |-- public // 静态资源文件
-    |-- scripts // npm 执行脚本文件 包含 start 和 build
-    |-- src
-        |-- App.tsx // 应用入口文件
-        |-- index.tsx // 入口文件引入初始化依赖
-        |-- react-app-env.d.ts // typescript类型声明文件
-        |-- setupProxy.js // 请求代理配置文件
-        |-- assets // 资源文件夹 存放图片、字体等
-        |-- components // 公共组件
-        |   |-- biz // 业务相关组件
-        |   |-- ui // UI相关组件
-        |-- config // 配置相关
-        |   |-- layout.tsx // 布局相关配置
-        |   |-- routes.tsx // 路由配置
-        |   |-- routesPath.tsx // 路由对应的path路径
-        |-- context // 全局状态
-        |-- hooks // 自定义hooks
-        |-- layout // 页面布局相关
-        |-- pages // 页面文件
-        |-- polyfill // polyfill 兼容 ie 11
-        |-- service // 请求接口
-        |-- styles // 样式相关文件
-        |   |-- antd-reset.scss  // 重置antd默认样式
-        |   |-- index.scss // 入口
-        |   |-- motion.scss // 动画相关
-        |   |-- variables.scss // 变量
-        |-- typings
-        |   |-- global.d.ts // window下的typescript类型设置
-        |-- utils // 工具类文件
-```
