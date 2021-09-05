@@ -43,12 +43,12 @@ yarn analyz
 
 ## Feature
 
-[x] 使用 `react-refresh` 实现 `HMR` , 可以实现父级组件状态的保存, Class 类型的组件不生效
-[x] 通过 `src/config/routes.tsx` 配置自动生成左边菜单栏以及面包屑导航栏
-[x] 懒加载页面
-[x] 支持 `echarts` 图标
-[x] 支持 `source-map` 本地调试
-[] 支持 antd 主题
+- [x] 使用 `react-refresh` 实现 `HMR` , 可以实现父级组件状态的保存, Class 类型的组件不生效
+- [x] 通过 `src/config/routes.tsx` 配置自动生成左边菜单栏以及面包屑导航栏
+- [x] 懒加载页面
+- [x] 支持 `echarts` 图标
+- [x] 支持 `source-map` 本地调试
+- [ ] 支持 antd 主题
 
 ## 目录相关
 
