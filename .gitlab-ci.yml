@@ -1,0 +1,35 @@
+stages:
+  - test
+  - production
+# 测试环境的任务
+job_test:
+  stage: test
+  image: docker
+  variables:
+    IMAGE_NAME: react-admin-template-image-test
+    CONTAINER_NAME: react-admin-template-container-test
+    EXPOSE_PORT: 9000
+  except:
+    - master
+  script:
+    - docker build -t ${IMAGE_NAME} .
+    - echo ${CONTAINER_NAME} container_name
+    - if [ $(docker ps -aq --filter name=${CONTAINER_NAME}) ]; then docker rm -f ${CONTAINER_NAME};fi
+    - docker run -d -p ${EXPOSE_PORT}:80 --name ${CONTAINER_NAME} ${IMAGE_NAME}
+
+# 生产环境的任务
+job_production:
+  stage: production
+  image: docker
+  variables:
+    IMAGE_NAME: react-admin-template-image-production
+    CONTAINER_NAME: react-admin-template-container-production
+    EXPOSE_PORT: 9001
+  interruptible: true
+  when: manual
+  only:
+    - master
+  script:
+    - docker build -t ${IMAGE_NAME} .
+    - if [ $(docker ps -aq --filter name=${CONTAINER_NAME}) ]; then docker rm -f ${CONTAINER_NAME};fi
+    - docker run -d -p ${EXPOSE_PORT}:80 --name ${CONTAINER_NAME} ${IMAGE_NAME}

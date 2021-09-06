@@ -41,13 +41,14 @@ yarn analyz
 
 对打包后的文件进行分析
 
-## Feature
+## Features
 
 - [x] 使用 `react-refresh` 实现 `HMR` , 可以实现父级组件状态的保存, Class 类型的组件不生效
 - [x] 通过 `src/config/routes.tsx` 配置自动生成左边菜单栏以及面包屑导航栏
 - [x] 懒加载页面
-- [x] 支持 `echarts` 图标
+- [x] 支持 `echarts` 图表
 - [x] 支持 `source-map` 本地调试
+- [x] 支持多个平台的部署
 - [ ] 支持 antd 主题
 
 ## 目录相关
@@ -60,7 +61,10 @@ yarn analyz
     |-- .gitignore // git忽略文件
     |-- .npmrc // npm下载源 设置的taobao镜像
     |-- .prettierrc // 代码格式化配置文件
-    |-- .travis.yml // travis配置文件
+    |-- .travis.yml // travis 配置文件
+    |-- .gitlab-ci.yml // gitlab-ci 配置文件
+    |-- Dockerfile // docker 构建配置文件
+    |-- nginx.conf // nginx 配置文件
     |-- README.md // 文档
     |-- package.json
     |-- tsconfig.json // ts配置文件
@@ -169,3 +173,62 @@ const onClick = ()=>{
 ```
 
 如果状态比较复杂，可以使用 `redux`、`mobx`、`dva` 等状态管理库
+
+## 部署相关
+
+### `Nginx`
+
+查看 `nginx.conf` 文件
+
+假设你将打包后的 `build` 目录放到 `/project/react-admin-template/` 下面，`nginx.conf` 需要做如下更改
+
+```diff
+- root  /usr/share/nginx/html;
++ root /project/react-admin-template/build;
+```
+
+如果你设置了 `Router` 组件的 `basename` 属性为 `/admin`，需要做如下更改
+
+```diff
++ location ^~ /admin/ {
++   rewrite ^/admin(/.*)$ $1 last;
++ }
+```
+
+### `Docker`
+
+查看 `Dockerfile` 文件
+
+在根目录下执行如下命令
+
+> 构建镜像
+
+```bash
+docker build -t react-admin-template-image .
+```
+
+> 运行容器
+
+```bash
+docker run -d -p 8080:80 --name react-admin-template-container react-admin-template-image
+```
+
+### `Travis`
+
+查看 `.travis.yml` 文件
+
+当前配置直接部署到 `github-pages`,相关信息请查看 [github-pages](https://docs.github.com/en/pages)
+
+### `Gitlab + GitlabRunner`
+
+查看 `.gitlab-ci.yml` 文件
+
+该配置文件分为 `test` 和 `production` 两个任务
+
+- `test` 任务发布到测试环境，除了 `master` 分支以外，其他分支的更新都会自动触发该任务，可以自行修改部署的端口
+- `production` 任务发布到生产环境, 只有 `master` 分支的更新会触发，需要手动操作才能执行，可以自行修改部署的端口
+
+```diff
+- EXPOSE_PORT: 9000
++ EXPOSE_PORT: other
+```
