@@ -9,6 +9,14 @@ import PageLoading from 'components/ui/pageLoading';
 import { Redirect } from 'react-router-dom';
 import BasicLayout from 'layout/BasicLayout';
 import routesPath from './routesPath';
+import {
+  DashboardOutlined,
+  ExceptionOutlined,
+  AppstoreOutlined,
+  TableOutlined,
+  FormOutlined,
+  SettingOutlined,
+} from '@ant-design/icons';
 
 const SuspenseComponent = (Component: ComponentType) => (props: any) => {
   return (
@@ -46,6 +54,8 @@ export interface IMenuConfig extends RouteConfig {
   subMenus?: string[];
   // 隐藏pageContainer
   hidePageContainer?: boolean;
+  // 侧边栏图标
+  icon?: React.Component;
 }
 const routes: Array<IMenuConfig> = [
   {
@@ -74,12 +84,14 @@ const routes: Array<IMenuConfig> = [
         name: 'dashboard',
         hidePageContainer: true,
         component: SuspenseComponent(DashBoard),
+        icon: <DashboardOutlined />,
       },
       // 表单相关
       {
         path: routesPath.form.root,
         name: '表单',
         exact: true,
+        icon: <FormOutlined />,
         subMenus: [
           routesPath.form.standard,
           routesPath.form.step,
@@ -122,6 +134,7 @@ const routes: Array<IMenuConfig> = [
         path: routesPath.table.root,
         name: '表格',
         exact: true,
+        icon: <TableOutlined />,
         subMenus: [routesPath.table.basic, routesPath.table.combination],
         render: () => <Redirect to={routesPath.table.basic} />,
       },
@@ -140,6 +153,7 @@ const routes: Array<IMenuConfig> = [
         path: routesPath.components.root,
         name: '常用组件',
         exact: true,
+        icon: <AppstoreOutlined />,
         subMenus: [
           routesPath.components.images,
           routesPath.components.download,
@@ -167,6 +181,7 @@ const routes: Array<IMenuConfig> = [
         path: routesPath.exception.root,
         name: '异常页面',
         exact: true,
+        icon: <ExceptionOutlined />,
         subMenus: [
           routesPath.exception.exception_403,
           routesPath.exception.exception_404,
@@ -194,6 +209,7 @@ const routes: Array<IMenuConfig> = [
         path: routesPath.setting.root,
         name: '设置',
         hidePageContainer: true,
+        icon: <SettingOutlined />,
         component: SuspenseComponent(Setting),
       },
       // 未匹配上任何路由

@@ -15,7 +15,6 @@ import { getBreadList } from './util';
 import { Layout, Menu } from 'antd';
 import { Link, useHistory } from 'react-router-dom';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
-import { UserOutlined, SettingOutlined } from '@ant-design/icons';
 import Header from './header';
 import styles from './index.module.scss';
 import logoImage from 'assets/images/logo.png';
@@ -61,16 +60,16 @@ const BasicLayout: FC<RouteConfigComponentProps> = ({ route, location }) => {
       <>
         {subMenus.map((path) => {
           const routeItem = getRouteItem(routes, path);
-          const { path: itemPath, name, subMenus } = routeItem;
+          const { path: itemPath, name, subMenus, icon } = routeItem;
           if (subMenus) {
             return (
-              <SubMenu key={itemPath} icon={<SettingOutlined />} title={name}>
+              <SubMenu key={itemPath} icon={icon} title={name}>
                 {renderMenu(routes, subMenus)}
               </SubMenu>
             );
           } else {
             return (
-              <Menu.Item key={itemPath} icon={<UserOutlined />}>
+              <Menu.Item key={itemPath} icon={icon}>
                 <Link to={itemPath}>{name}</Link>
               </Menu.Item>
             );
