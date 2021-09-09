@@ -4,7 +4,7 @@
  * @Description:
  */
 
-import React, { FC, useState } from 'react';
+import React, { FC, useState, useEffect } from 'react';
 import { Alert, Form, Button, Col, Row, Space, Steps, message } from 'antd';
 import { useSetState } from 'hooks';
 import { Prompt } from 'react-router-dom';
@@ -39,19 +39,17 @@ const StepForm: FC = () => {
     return <CurrentForm onValuesChange={onValuesChange} form={form} />;
   };
   const nextStep = () => {
-    if (currentStep >= 0 && currentStep <= fromList.length - 1) {
-      form
-        .validateFields()
-        .then((value) => {
-          console.log(value, 'value');
-          setFormData((prev) => ({
-            ...prev,
-            ...value,
-          }));
-          setCurrentStep(currentStep + 1);
-        })
-        .catch(() => {});
-    }
+    form
+      .validateFields()
+      .then((value) => {
+        console.log(value, 'value');
+        setFormData((prev) => ({
+          ...prev,
+          ...value,
+        }));
+        setCurrentStep(currentStep + 1);
+      })
+      .catch(() => {});
   };
   const preStep = () => {
     setCurrentStep(currentStep - 1);
@@ -68,7 +66,14 @@ const StepForm: FC = () => {
       message.success(JSON.stringify(data));
     });
   };
-
+  // 初始化表单值
+  useEffect(() => {
+    form.setFieldsValue({
+      'basic.email': '540548050@qq.com',
+      'basic.gender': 'male',
+      'goods.name': '鞋子',
+    });
+  }, [form]);
   return (
     <div>
       <Alert
