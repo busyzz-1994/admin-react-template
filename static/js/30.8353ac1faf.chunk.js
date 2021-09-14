@@ -1,0 +1,2 @@
+(this["webpackJsonpreact-admin-template"]=this["webpackJsonpreact-admin-template"]||[]).push([[30],{687:function(e,t,a){"use strict";a.r(t);a(0);var s=a(540),c=a(6);t.default=function(){return Object(c.jsx)(s.a,{code:404,message:"\u8bbf\u95ee\u7684\u9875\u9762\u4e0d\u5b58\u5728"})}}}]);
+//# sourceMappingURL=30.8353ac1faf.chunk.js.map

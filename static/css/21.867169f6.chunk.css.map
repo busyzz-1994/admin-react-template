@@ -1,0 +1,1 @@
+{"version":3,"sources":["webpack://src/pages/form/step/index.module.scss"],"names":[],"mappings":"AAAA,4BACE,WAAY,CACZ,eAAgB","file":"21.867169f6.chunk.css","sourcesContent":[".form-container {\n  width: 600px;\n  margin-top: 20px;\n}\n"]}
