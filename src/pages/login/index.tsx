@@ -19,7 +19,7 @@ const Login = () => {
   const history = useHistory();
   const [loading, setLoading] = useState(false);
   const onFinish = async (values: FormInput) => {
-    // 模拟登陆，提交表单
+    // 模拟登陆,提交表单
     console.log('Received values of form: ', values);
     setLoading(true);
     await delay(1000);
