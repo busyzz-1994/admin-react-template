@@ -4,7 +4,7 @@
 
 ## 准备工作
 
-- 使用 `vscode 编辑器`
+- 使用 `vscode 编辑器`
 - 安装 `EditorConfig for VS Code 插件` 统一代码风格 ，具体配置查看 `.editorconfig` 文件
 - 安装 `Prettier 插件` 自动格式化代码
 - 安装 `ESlint 插件` 对代码进行校验，如果需要修改 eslint 规则，修改 `package.json -> eslintConfig -> rules`

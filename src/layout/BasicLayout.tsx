@@ -101,7 +101,7 @@ const BasicLayout: FC<RouteConfigComponentProps> = ({ route, location }) => {
           onClick={() => history.push(routesPath.root)}
         >
           <img src={logoImage} alt='-' />
-          {!collapsed && <h2>admin</h2>}
+          {!collapsed && <h2>admin22</h2>}
         </div>
         <Menu
           theme='dark'
